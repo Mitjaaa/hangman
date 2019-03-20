@@ -1,0 +1,2 @@
+Diese Datei existiert lediglich, damit der Ordner "src/sample/java" von Git commitet wird.
+Sobald sich weitere Dateien in dem Ordner befinden, kann diese Datei gelöscht werden.

@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+
+/*
+ * Hauptversion (englisch: major release): Äußerst signifikante Änderung am Programm – zum Beispiel wenn das Programm komplett neu geschrieben wurde oder keine Schnittstellenkompatibilität aufrechterhalten lässt.
+ * Nebenversion (englisch: minor release): Funktionale Erweiterung des Programms. Kleinere Änderungen an der API.
+ * Revision (englisch: patch level): Enthält meist Fehlerbehebungen.
+*/
+
+// TODO: Version festlegen
+version = '0.0.1'
+
+// TODO: sourceSets entfernen, falls es keine samples gibt
+sourceSets {
+       sample {
+             java {
+                    srcDir 'src/sample/java'
+             }
+       }
+}
+// TODO: Das Passwort kann auch in die gradle.properties (im Homeverzeichnis unter ~/.gradle/gradle.properties) geschrieben werden und über den $-Operator ausgelesen werden.
+repositories {
+	mavenCentral()
+}
+
+// TODO: Abhängigkeiten ergänzen bzw. nicht benötigte Abhängigkeiten löschen
+// ANMERKUNG: Sollte eine der unten stehenden Bibliotheken nicht geladen werden können, muss das "+" durch eine konkrete Versionsnummer ersetzt werden.
+// Die aktuellen Versionsnummern der SPIS-Bibliotheken sind zu finden unter https://srv-builder.fkie.fraunhofer.de/nexus3/#browse/browse:spis (Anmeldung erforderlich).
+dependencies {
+	compile fileTree(dir: 'lib', include: '**/*.jar')
+	
+	
+}
+
+eclipse {
+    classpath {
+    	downloadSources = true
+        downloadJavadoc = true
+    }
+}
